@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme{
+    --color-primary-bg: red ;
+    --color-primary: white;
+    --color-secondary: black;
+    --color-third: gray;
+    --color-gradient : from white to red;
+}
