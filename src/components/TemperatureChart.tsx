@@ -1,3 +1,4 @@
+
 import {
     BarChart,
     Bar,
@@ -66,41 +67,47 @@ const TemperatureChart: React.FC<TemperatureChartProps> = ({ selectedRange }) =>
     const totalHours = data.length;
 
     return (
-        <div className="w-full h-full bg-white rounded-2xl pl-4 pr-4 pt-3 pb-2">
-            <div className="flex justify-start space-x-6 items-center">
+        <div className="w-full h-full theme-card-bg rounded-2xl p-3 md:p-4">
+            <div className="flex flex-wrap justify-start gap-3 md:gap-6 items-center mb-3">
                 <div className="flex flex-col space-y-1">
-                    <span className="text-[8px] font-semibold text-gray-400">Total Spend</span>
-                    <span className="text-black text-[12px] font-bold">{totalUsage} kW</span>
+                    <span className="text-xs md:text-sm font-semibold theme-text-secondary">Total Spend</span>
+                    <span className="theme-text-primary text-sm md:text-base font-bold">{totalUsage} kW</span>
                 </div>
                 <div className="flex flex-col space-y-1">
-                    <span className="text-[8px] font-semibold text-gray-400">Total Hours</span>
-                    <span className="text-black text-[12px] font-bold">{totalHours} h</span>
+                    <span className="text-xs md:text-sm font-semibold theme-text-secondary">Total Hours</span>
+                    <span className="theme-text-primary text-sm md:text-base font-bold">{totalHours} h</span>
                 </div>
                 <div className="flex flex-col space-y-1">
-                    <span className="text-[8px] font-semibold text-gray-400">Highest Usage</span>
-                    <span className="text-black text-[12px] font-bold">{maxUsage} kW</span>
+                    <span className="text-xs md:text-sm font-semibold theme-text-secondary">Highest Usage</span>
+                    <span className="theme-text-primary text-sm md:text-base font-bold">{maxUsage} kW</span>
                 </div>
             </div>
 
             <ResponsiveContainer width="100%" height="75%">
                 <BarChart data={data}>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--border-color)" />
                     <XAxis
                         dataKey="time"
                         axisLine={false}
                         tickLine={false}
-                        tick={{ fill: '#9ca3af', fontSize: 8, fontWeight: 600 }}
+                        tick={{ fill: 'var(--text-secondary)', fontSize: 10, fontWeight: 600 }}
                     />
                     <YAxis domain={[2,4]} hide />
                     <Tooltip
                         formatter={(value) => [`${value} kW`, 'Usage']}
-                        cursor={{ fill: 'rgba(0,0,0,0.04)' }}
+                        cursor={{ fill: 'var(--shadow-color)' }}
+                        contentStyle={{
+                            backgroundColor: 'var(--card-bg)',
+                            border: '1px solid var(--border-color)',
+                            borderRadius: '8px',
+                            color: 'var(--text-primary)'
+                        }}
                     />
                     <Bar dataKey="usage" barSize={16}>
                         {data.map((entry, index) => (
                             <Cell
                                 key={index}
-                                fill={entry.usage === maxUsage ? '#000' : '#e5e7eb'}
+                                fill={entry.usage === maxUsage ? 'var(--text-primary)' : 'var(--border-color)'}
                             />
                         ))}
                     </Bar>
