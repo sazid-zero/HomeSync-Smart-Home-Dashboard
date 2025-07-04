@@ -45,7 +45,7 @@ const initialAppliances: Appliance[] = [
 
 export default function ApplianceControlCard() {
     // State to track selected room tab
-    const [selectedRoom, setSelectedRoom] = useState<string>('lounge');
+    const [selectedRoom, setSelectedRoom] = useState<string>('all');
     // State to track all appliances and their current values
     const [appliances, setAppliances] = useState<Appliance[]>(initialAppliances);
 
@@ -79,7 +79,7 @@ export default function ApplianceControlCard() {
     return (
         <div className="w-full h-full theme-card-bg rounded-2xl theme-shadow-strong p-4 flex flex-col">
             {/* Header with room tabs */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 space-y-3 sm:space-y-0">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 space-x-2 space-y-3 sm:space-y-0">
                 <h1 className="text-sm font-bold theme-text-primary">APPLIANCES</h1>
                 <div className="flex space-x-2 overflow-x-auto hide-scrollbar">
                     {rooms.map(room => (
