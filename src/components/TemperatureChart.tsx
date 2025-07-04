@@ -66,7 +66,7 @@ const TemperatureChart: React.FC<TemperatureChartProps> = ({ selectedRange }) =>
     const totalHours = data.length;
 
     return (
-        <div className="w-full h-full bg-white rounded-xl pl-4 pr-4 pt-3 pb-2 shadow-xl">
+        <div className="w-full h-full bg-white rounded-2xl pl-4 pr-4 pt-3 pb-2">
             <div className="flex justify-start space-x-6 items-center">
                 <div className="flex flex-col space-y-1">
                     <span className="text-[8px] font-semibold text-gray-400">Total Spend</span>

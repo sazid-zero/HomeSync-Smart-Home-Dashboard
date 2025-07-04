@@ -1,4 +1,16 @@
 import React, {useState} from 'react';
+import TimeRangeDropdown from "../components/DropDownMenu.tsx";
+import TemperatureChart from "../components/TemperatureChart.tsx";
+import ApplianceControlCard from "../components/ApplianceControlCard.tsx";
+
+const devices = [
+    { id: 1, name: "Air Condition", units: 2, power: "52kw", iconSrc: "/air-conditioner.png" },
+    { id: 2, name: "Smart Lamp", units: 8, power: "12kw", iconSrc: "/light-bulb.png" },
+    { id: 3, name: "Smart TV", units: 5, power: "21kw", iconSrc: "/monitor.png" },
+    { id: 4, name: "Speaker", units: 1, power: "42kw", iconSrc: "/speaker.png" },
+    { id: 5, name: "Fan", units: 3, power: "19kw", iconSrc: "/ceiling-fan.png" },
+    { id: 6, name: "Heater", units: 1, power: "33kw", iconSrc: "/heating.png" },
+];
 
 interface DeviceCardProps {
     name: string;
@@ -18,7 +30,7 @@ const [isOn, setIsOn] = useState(false);
     <div className="w-60 h-40 bg-white rounded-3xl shadow-[0_10px_10px_rgba(0,0,0,0.3)] flex space-x-17">
         <div className="flex flex-col pt-8 space-y-10">
             <div className="pl-8">
-            <img src={image} alt="icon" className="h-5 w-5 rounded-sm " />
+            <img src={image} alt="icon" className="size-[22px] rounded-sm " />
             </div>
         <div className="flex pl-5 flex-col space-y-1">
         <div className="text-lg font-bold">{name}</div>
@@ -46,6 +58,79 @@ const [isOn, setIsOn] = useState(false);
     </div>
 );
 }
+
+const HumidityControl = () => {
+    const [humidity, setHumidity] = useState(60);
+
+    // Preset button handler
+    const setPreset = (value: number) => {
+        setHumidity(value);
+    };
+
+    return (
+        <div className=" pt-6 space-y-6 w-FULL">
+            <div className="flex justify-between items-center">
+                <h3 className="text-xl font-bold">Humidity</h3>
+                <span className="text-xl font-bold">{humidity}%</span>
+            </div>
+
+            {/* Custom Slider */}
+            <div className="relative w-full">
+                <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value={humidity}
+                    onChange={(e) => setHumidity(Number(e.target.value))}
+                    className="w-full h-2 appearance-none bg-gray-300 rounded-full
+            [&::-webkit-slider-thumb]:appearance-none
+            [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5
+            [&::-webkit-slider-thumb]:rounded-full
+            [&::-webkit-slider-thumb]:bg-white
+            [&::-webkit-slider-thumb]:border-2
+            [&::-webkit-slider-thumb]:border-black
+            [&::-webkit-slider-thumb]:shadow
+            [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:w-5
+            [&::-moz-range-thumb]:rounded-full
+            [&::-moz-range-thumb]:bg-white
+            [&::-moz-range-thumb]:border-2
+            [&::-moz-range-thumb]:border-black"
+                    style={{
+                        background: `linear-gradient(to right, black ${humidity}%, #e5e7eb ${humidity}%)`,
+                    }}
+                />
+            </div>
+
+            {/* Preset Buttons */}
+            <div className="flex p-4 justify-center items-center space-x-6">
+                <button
+                    onClick={() => setPreset(50)}
+                    className={` h-16 w-22 text-lg py-2 rounded-2xl shadow-[0_10px_10px_rgba(0,0,0,0.3)]  ${
+                        humidity === 50 ? "bg-gray-100" : "bg-gray-300"
+                    }`}
+                >
+                    Auto
+                </button>
+                <button
+                    onClick={() => setPreset(30)}
+                    className={`h-14 w-22 text-lg py-2 rounded-2xl shadow-[0_10px_10px_rgba(0,0,0,0.3)] ${
+                        humidity === 30 ? "bg-gray-100" : "bg-gray-300"
+                    }`}
+                >
+                    30%
+                </button>
+                <button
+                    onClick={() => setPreset(60)}
+                    className={`h-14 w-22 text-lg py-2 rounded-2xl shadow-[0_10px_10px_rgba(0,0,0,0.3)] ${
+                        humidity === 60 ? "bg-gray-100" : "bg-gray-300"
+                    }`}
+                >
+                    60%
+                </button>
+            </div>
+        </div>
+    );
+};
 
 const TemperatureControl: React.FC = () => {
     const [temperature, setTemperature] = useState(12);
@@ -151,108 +236,105 @@ const TemperatureControl: React.FC = () => {
                     +
                 </button>
             </div>
+
+
+            <HumidityControl/>
+            <AirQuality/>
+
+
+        </div>
+    );
+    }
+
+    const AirQuality: React.FC = () => (
+        <div className="flex flex-col space-y-4">
+    <div className="pt-6 flex justify-between text-xl font-bold">
+        <div>Air Quality</div>
+        <div>Good</div>
+    </div>
+
+        <div className="flex justify-between">
+            <div className="h-28 w-40 bg-white border-3 border-gray-300 rounded-xl shadow-[0_10px_0px_rgba(0,0,0,0.2)] flex justify-between items-center">CO: 874 ppm</div>
+            <div className="h-28 w-42 bg-white border-3 border-gray-300 rounded-xl shadow-[0_10px_10px_rgba(0,0,0,0.2)]">Pollutants: 60 µN</div>
+        </div>
+
+        </div>
+
+);
+
+
+const UsageStats: React.FC = () => {
+    const [selectedRange, setSelectedRange] = useState('Today');
+    return (
+        <div className="w-93 h-55 bg-white rounded-2xl shadow-[0_10px_10px_rgba(0,0,0,0.2)] pt-4 flex flex-col">
+
+            <div className="flex justify-between items-center pl-4 pr-5">
+                <h1 className="text-[12px] font-bold">Usage Status</h1>
+                <TimeRangeDropdown selected={selectedRange} setSelected={setSelectedRange}/>
+            </div>
+            <TemperatureChart selectedRange={selectedRange}/>
         </div>
     );
 }
 
-const HumidityControl: React.FC = () => (
-    <div className="w-85 h-40 p-4 flex flex-col">
-        <div>Humidity</div>
-        <div className="w-full bg-gray-200 rounded-full h-6 mt-2">
-            <div className="bg-black h-6 rounded-full" style={{ width: '60%' }}></div>
-        </div>
-        <div className="flex justify-between mt-2">
-            <button className="w-12 h-8 bg-gray-200 rounded">Auto</button>
-            <button className="w-12 h-8 bg-gray-200 rounded">30%</button>
-            <button className="w-12 h-8 bg-gray-200 rounded">60%</button>
-        </div>
-    </div>
-);
-
-const AirQuality: React.FC = () => (
-    <div className="w-85 h-40 p-4 flex flex-col">
-        <div>Air Quality</div>
-        <div>Good</div>
-        <div className="flex space-x-2 mt-2">
-            <div>CO: 874 ppm</div>
-            <div>Pollutants: 60 µN</div>
-        </div>
-    </div>
-);
-
-const UsageStats: React.FC = () => (
-    <div className="w-93 h-55 bg-white rounded-2xl shadow-[0_0_10px_rgba(0,0,0,0.2)] pt-6 p-4 flex flex-col">
-        <div className="text-[12px] font-bold">Usage Status</div>
-        <div>Total Hours: 32h</div>
-        <div className="w-full bg-gray-200 h-6 mt-2">
-            <div className="bg-black h-6" style={{ width: '50%' }}></div>
-        </div>
-    </div>
-);
-
 const Appliances: React.FC = () => (
-    <div className="w-93 h-55 bg-white rounded-2xl pt-6 shadow-[0_0_10px_rgba(0,0,0,0.2)] p-4 flex flex-col">
-        <div>Appliances</div>
-        <div className="flex flex-col space-y-2">
-            <div className="flex items-center">
-                <input type="checkbox" className="mr-2" /> TV set
-            </div>
-            <div className="flex items-center">
-                <input type="checkbox" className="mr-2" /> Stereo System
-            </div>
-            <div className="flex items-center">
-                <input type="checkbox" className="mr-2" /> PlayStation 4
-            </div>
-            <div className="flex items-center">
-                <input type="checkbox" className="mr-2" /> Computer
-            </div>
-            <div className="flex items-center">
-                <input type="checkbox" className="mr-2" /> Lamp 1
-            </div>
-            <div className="flex items-center">
-                <input type="checkbox" className="mr-2" /> Lamp 2
-            </div>
-        </div>
+    <div>
+        <ApplianceControlCard/>
     </div>
 );
 
 const PowerConsumption: React.FC = () => (
-    <div className="w-93 h-55 bg-white rounded-2xl shadow-[0_0_10px_rgba(0,0,0,0.2)] p-4 flex flex-col">
-        <div>Device Power Consumption</div>
-        <div className="flex flex-col space-y-2">
-            <div className="flex items-center">
-                <img src="https://via.placeholder.com/20" alt="Air Condition" className="mr-2" /> Air Condition 2 unit - 52kW
-            </div>
-            <div className="flex items-center">
-                <img src="https://via.placeholder.com/20" alt="Smart Lamp" className="mr-2" /> Smart Lamp 8 unit - 12kW
-            </div>
-            <div className="flex items-center">
-                <img src="https://via.placeholder.com/20" alt="Smart TV" className="mr-2" /> Smart TV 1 unit - 21kW
-            </div>
-            <div className="flex items-center">
-                <img src="https://via.placeholder.com/20" alt="Speaker" className="mr-2" /> Speaker 1 unit - 10kW
-            </div>
+    <div className="h-68 w-93 bg-white rounded-xl p-4 shadow-[0_10px_10px_rgba(0,0,0,0.3)] flex flex-col space-y-4">
+        <h3 className="text-[12px] font-bold">Device Power Consumption</h3>
+
+        {/* Scrollable list */}
+        <div className="flex-1 overflow-y-auto hide-scrollbar pb-4 space-y-3">
+            {devices.map((device) => (
+                <div key={device.id} className="flex justify-between items-center">
+                    <div className="flex items-center space-x-3">
+                        <div className="w-10 h-10 bg-gray-100 flex items-center justify-center rounded-xl shadow-[0_10px_10px_rgba(0,0,0,0.3)]">
+                            <img src={device.iconSrc} alt={device.name} className="w-5 h-5 object-contain" />
+                        </div>
+                        <div className="flex flex-col space-y-0">
+                            <h4 className="text-[12px] font-bold">{device.name}</h4>
+                            <span className="text-[8px] text-gray-500">{device.units} unit</span>
+                        </div>
+                    </div>
+                    <span className="text-[13px] font-bold">{device.power}</span>
+                </div>
+            ))}
         </div>
     </div>
 );
 
-const Occupant: React.FC = () => (
-    <div className="w-93 h-55 bg-white rounded-2xl shadow-[0_0_10px_rgba(0,0,0,0.2)] p-4 flex flex-col">
-        <div>Occupant</div>
-        <div className="grid grid-cols-3 gap-2">
-            <img src="https://via.placeholder.com/40" alt="Luan" className="rounded-full" />
-            <img src="https://via.placeholder.com/40" alt="Jenyris" className="rounded-full" />
-            <img src="https://via.placeholder.com/40" alt="Enrique" className="rounded-full" />
-            <img src="https://via.placeholder.com/40" alt="Christine" className="rounded-full" />
-            <img src="https://via.placeholder.com/40" alt="Natale" className="rounded-full" />
-            <img src="https://via.placeholder.com/40" alt="Ramiro" className="rounded-full" />
-            <img src="https://via.placeholder.com/40" alt="Bryan" className="rounded-full" />
-            <img src="https://via.placeholder.com/40" alt="Safetg" className="rounded-full" />
-            <img src="https://via.placeholder.com/40" alt="Faddig" className="rounded-full" />
-            <button className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">+</button>
+const Occupant: React.FC = () => {
+    const data=[
+        { id: 1, name: "Sazid", imgSrc: "/profile/sazid.jpg" },
+        { id: 2, name: "Juthi", imgSrc: "/profile/sharmin.jpg" },
+        { id: 1, name: "Shafayat", imgSrc: "/profile/shafayat.jpg" },
+        { id: 5, name: "Jui", imgSrc: "/profile/jui.jpg" }
+    ]
+
+   return (
+
+        <div className="w-93 h-68 bg-white rounded-2xl shadow-[0_10px_10px_rgba(0,0,0,0.3)] p-4 flex flex-col">
+            <div className="flex justify-between items-center">
+                <h1 className="text-[12px] font-bold">Occupant</h1>
+                <h3 className="text-[10px] font-semibold text-gray-500">See All {'->'} </h3>
+            </div>
+
+            <div className="grid grid-cols-6 gap-3 pt-4">
+                {data.map((item) => (
+                    <div key={item.id} className="flex flex-col items-center space-y-0">
+                        <img src={item.imgSrc} alt={item.name} className="w-13 h-9 rounded-md" />
+                        <h1 className="text-[10px] font-semibold ">{item.name}</h1>
+                    </div>
+                ))}
+                <button className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">+</button>
+            </div>
         </div>
-    </div>
-);
+    );
+}
 
 const Sidebar: React.FC = () => (
     <div className="w-60 bg-white min-h-screen pt-10 pl-9 flex flex-col space-y-6">
@@ -301,8 +383,6 @@ const Dashboard: React.FC = () => {
 
             <div className="flex flex-col mt-15 h-240 w-100 bg-white shadow-[0_10px_20px_rgba(0,0,0,0.2)] rounded-2xl mb-4">
                 <TemperatureControl />
-                <HumidityControl />
-                <AirQuality />
             </div>
 
         </div>
