@@ -438,7 +438,7 @@ const Dashboard: React.FC = () => {
                     </div>
 
                     <div className="w-full xl:w-96 xl:min-w-[384px]">
-                        <div className="theme-card-bg theme-shadow rounded-2xl p-4 md:p-6">
+                        <div className="theme-card-bg theme-shadow-strong rounded-2xl p-4 md:p-6">
                             <TemperatureControl />
                             <HumidityControl />
                             <AirQuality />
