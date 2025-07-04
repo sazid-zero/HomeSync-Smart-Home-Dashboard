@@ -254,8 +254,42 @@ const TemperatureControl: React.FC = () => {
     </div>
 
         <div className="flex justify-between">
-            <div className="h-28 w-40 bg-white border-3 border-gray-300 rounded-xl shadow-[0_10px_0px_rgba(0,0,0,0.2)] flex justify-between items-center">CO: 874 ppm</div>
-            <div className="h-28 w-42 bg-white border-3 border-gray-300 rounded-xl shadow-[0_10px_10px_rgba(0,0,0,0.2)]">Pollutants: 60 µN</div>
+
+            <div className="h-28 w-40 p-4 bg-white border-3 border-gray-300 rounded-xl shadow-[0_10px_10px_rgba(0,0,0,0.2)] flex flex-col justify-between items-center">
+
+                <div className="flex justify-between items-center w-full">
+                <img src="/molecules.png " className="size-[32px]" alt="icon"></img>
+                <h1 className="text-md font-bold">Moderate</h1>
+                </div>
+
+                <div className="flex justify-between items-center w-full">
+                    <span  className="flex items-end">
+                        <h1 className="text-lg font-bold">CO</h1>
+                        <h1 className="text-[10px]">2</h1>
+                    </span>
+                    <span  className="flex items-end">
+                        <h1 className="text-lg font-bold">874</h1>
+                        <h1 className="text-[12px] font-semibold">ppm</h1>
+                    </span>
+                </div>
+
+            </div>
+            <div className="h-28 w-44 p-4 bg-white border-3 border-gray-300 rounded-xl shadow-[0_10px_10px_rgba(0,0,0,0.2)] flex flex-col justify-between items-center">
+
+                <div className="flex justify-between items-center w-full">
+                    <img src="/virus.png " className="size-[32px]" alt="icon"></img>
+                    <h1 className="text-md font-bold">Excellent</h1>
+                </div>
+
+                <div className="flex justify-between items-center w-full">
+                        <h1 className="text-md font-bold">Pollutant</h1>
+                    <span  className="flex items-end">
+                        <h1 className="text-lg font-bold">60</h1>
+                        <h1 className="text-[12px] font-semibold">AQN</h1>
+                    </span>
+                </div>
+
+            </div>
         </div>
 
         </div>
@@ -330,7 +364,7 @@ const Occupant: React.FC = () => {
                         <h1 className="text-[10px] font-semibold ">{item.name}</h1>
                     </div>
                 ))}
-                <button className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">+</button>
+                <button className="w-13 h-9 bg-gray-200 rounded-md flex items-center justify-center">+</button>
             </div>
         </div>
     );
