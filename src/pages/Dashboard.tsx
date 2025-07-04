@@ -40,12 +40,12 @@ const [isOn, setIsOn] = useState(false);
         <div className="flex flex-col pt-7 space-y-10">
 
             <div
-                className={`relative w-12 h-6 rounded-full p-1 cursor-pointer bg-gradient-to-b from-gray-300 to-gray-200`}
+                className={` w-12 h-6 rounded-full p-1 cursor-pointer bg-gradient-to-b from-gray-300 to-gray-200`}
                 onClick={handleToggle}
                 onMouseDown={(e) => e.preventDefault()}
             >
                 <div
-                    className={`absolute w-4 h-4  rounded-full transition-transform duration-200 ${isOn ? 'translate-x-6 bg-black' : 'translate-x-0 bg-white'}`}
+                    className={` w-4 h-4  rounded-full transition-transform duration-200 ${isOn ? 'translate-x-6 bg-black' : 'translate-x-0 bg-white'}`}
                 ></div>
             </div>
 
@@ -371,7 +371,8 @@ const Occupant: React.FC = () => {
 }
 
 const Sidebar: React.FC = () => (
-    <div className="w-60 bg-white min-h-screen pt-10 pl-9 flex flex-col space-y-6">
+
+    <div className="hidden md:flex w-60 bg-white min-h-screen pt-10 pl-9 flex-col space-y-6">
         <div className="flex items-center space-x-2">
             <img src="/profile.jpg" alt="User" className="rounded-full h-12 w-12" />
             <div className="flex flex-col space-y-1 pl-1">
@@ -394,11 +395,12 @@ const Sidebar: React.FC = () => (
 
 const Dashboard: React.FC = () => {
     return (
-        <div className="flex space-x-10">
+        <div className="flex">
             <Sidebar />
+    <div className="flex flex-col lg:flex-row pl-8 space-x-10">
             <div className="flex flex-col pt-14 space-y-6">
                 <span className="text-xl font-bold">My Devices</span>
-                <div className="grid grid-cols-3 gap-x-5 gap-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-8">
                 <DeviceCard name="Smart TV" status="Active for 3 hours" power="5kWh" image="/monitor.png"/>
                 <DeviceCard name="Speaker" status="Active for 4 hours" power="5kWh" image="/speaker.png"/>
                 <DeviceCard name="Router" status="Active for 3 hours" power="5kWh" image="/router.png"/>
@@ -407,7 +409,7 @@ const Dashboard: React.FC = () => {
                 <DeviceCard name="Socket" status="Active for 3 hours" power="5kWh" image="/plug.png"/>
                 </div>
 
-                <div className="grid grid-cols-2 pt-2 gap-x-5 gap-y-9">
+                <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 pt-2 gap-x-5 gap-y-9">
                 <UsageStats />
                 <Appliances />
                 <PowerConsumption />
@@ -420,6 +422,7 @@ const Dashboard: React.FC = () => {
             </div>
 
         </div>
+            </div>
     );
 };
 
