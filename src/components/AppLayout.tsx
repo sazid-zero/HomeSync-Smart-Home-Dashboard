@@ -62,7 +62,7 @@ const AppLayoutContent: React.FC = () => {
                             </div>
                             <div className="flex items-center space-x-4 cursor-pointer hover:opacity-70">
                                 <img src="/nav/settings.png" className="h-6 w-6 theme-icon-filter" alt="icon"></img>
-                                <span>Setting</span>
+                                <span>Settings</span>
                             </div>
                             <div
                                 className="flex items-center space-x-4 cursor-pointer hover:opacity-70"
