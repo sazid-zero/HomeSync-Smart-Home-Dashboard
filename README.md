@@ -1,69 +1,79 @@
-# React + TypeScript + Vite
+## Smart Home Dashboard (Front-End Only)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive, responsive smart home dashboard built with **React + TypeScript + Tailwind CSS**. Control your devices, monitor temperature, humidity, air quality, and power consumption — all in one beautiful interface.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📸 Preview
 
-## Expanding the ESLint configuration
+>
+> *(add a screenshot image in your public folder with this name)*
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+*  Real-time usage stats and temperature charts
+*  Toggle devices on/off dynamically
+* ️ Customizable temperature dial control
+*  Humidity and air quality controls
+*  Occupant listing and device power consumption tracking
+*  Fully responsive layout from desktop to mobile
+*  Clean modern UI with smooth transitions
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## Technologies
+
+* React + TypeScript
+* Tailwind CSS
+* Headless UI (for dropdowns)
+* Recharts (for charts)
+* Framer Motion (optional for animations)
+
+---
+
+## 🧑‍💻 Getting Started
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/yourusername/smart-home-dashboard.git
+cd smart-home-dashboard
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2️⃣ Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+### 3️⃣ Run the development server
+
+```bash
+npm run dev
+```
+
+Visit `http://localhost:5173` in your browser.
+
+---
+
+## 📖 How to Use
+
+* Toggle device power by clicking the switch on each card
+* Adjust temperature via the dial control
+* Change humidity using the slider or preset buttons
+* View live power consumption stats and air quality data
+
+---
+
+## 📌 To Do
+
+* Integrate Firebase or custom backend for real-time data sync
+* Add user authentication
+* Push notifications for smart alerts
+* Dark mode support
+
+---
+
+Designed and developed by **Sharif Mahmud Sazid**.
