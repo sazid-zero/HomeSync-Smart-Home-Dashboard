@@ -68,7 +68,7 @@ const TemperatureChart: React.FC<TemperatureChartProps> = ({ selectedRange }) =>
 
     return (
         <div className="w-full h-full theme-card-bg rounded-2xl p-3 md:p-4">
-            <div className="flex flex-wrap justify-start gap-3 md:gap-6 items-center mb-3">
+            <div className="flex justify-start gap-3 md:gap-6 items-center mb-3">
                 <div className="flex flex-col space-y-1">
                     <span className="text-xs md:text-sm font-semibold theme-text-secondary">Total Spend</span>
                     <span className="theme-text-primary text-sm md:text-base font-bold">{totalUsage} kW</span>
