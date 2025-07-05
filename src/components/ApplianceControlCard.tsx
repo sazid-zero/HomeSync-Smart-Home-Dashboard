@@ -100,7 +100,7 @@ export default function ApplianceControlCard() {
 
             {/* Appliance Controls */}
             <div className="flex-1 overflow-y-auto hide-scrollbar">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+                <div className="grid grid-cols-1 lg:grid-cols-[40%_50%] gap-4 lg:gap-6">
                     {/* Toggle Controls */}
                     <div className="space-y-3">
                         {visibleAppliances
@@ -143,7 +143,7 @@ export default function ApplianceControlCard() {
                                                 max={100}
                                                 value={app.value}
                                                 onChange={(e) => handleSliderChange(app.id, Number(e.target.value))}
-                                                className="w-16 sm:w-20 h-[3px] appearance-none theme-bg-tertiary rounded-full cursor-pointer
+                                                className="w-16 h-[3px] appearance-none theme-bg-tertiary rounded-full cursor-pointer
                                                 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-[10px]
                                                 [&::-webkit-slider-thumb]:w-[10px] [&::-webkit-slider-thumb]:rounded-full
                                                 [&::-webkit-slider-thumb]:cursor-pointer

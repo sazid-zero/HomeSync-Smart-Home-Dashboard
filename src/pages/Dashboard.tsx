@@ -281,7 +281,7 @@ const UsageStats: React.FC = () => {
                 <h1 className="text-sm font-bold theme-text-primary">Usage Status</h1>
                 <TimeRangeDropdown selected={selectedRange} setSelected={setSelectedRange}/>
             </div>
-            <div className="flex-1 min-h-[180px]">
+            <div className="flex-1 min-h-[170px]">
                 <TemperatureChart selectedRange={selectedRange}/>
             </div>
         </div>
