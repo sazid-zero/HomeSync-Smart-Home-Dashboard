@@ -24,48 +24,48 @@ const AppLayoutContent: React.FC = () => {
             {isMobileMenuOpen && (
                 <div className="lg:hidden fixed inset-0 bg-black/20 bg-opacity-50 z-50" onClick={() => setIsMobileMenuOpen(false)}>
                     <div className="fixed right-0 top-0 h-full w-64 theme-bg-secondary shadow-lg z-50 p-6">
-                        <div className="flex items-center space-x-2 mb-8">
+                        <div className="flex items-center pl-4 space-x-2 mb-8">
                             <img src="/profile.jpg" alt="User" className="rounded-full h-12 w-12" />
                             <div className="flex flex-col space-y-1">
                                 <span className="text-xs font-semibold theme-text-tertiary">Welcome back</span>
                                 <span className="text-sm font-bold theme-text-primary">Sharif Mahmud</span>
                             </div>
                         </div>
-                        <div className="flex flex-col space-y-6 theme-text-primary">
-                            <div className="flex items-center space-x-3 cursor-pointer hover:opacity-70">
-                                <span className="text-lg">🏠</span>
+                        <div className="flex flex-col space-y-8 p-8 theme-text-primary">
+                            <div className="flex items-center space-x-4 cursor-pointer hover:opacity-70">
+                                <img src="/nav/window.png" className="h-6 w-6 theme-icon-filter" alt="icon"></img>
                                 <span>Dashboard</span>
                             </div>
-                            <div className="flex items-center space-x-3 cursor-pointer hover:opacity-70">
-                                <span className="text-lg">🏠</span>
+                            <div className="flex items-center space-x-4 cursor-pointer hover:opacity-70">
+                                <img src="/nav/room.png" className="h-6 w-6 theme-icon-filter" alt="icon"></img>
                                 <span>Rooms</span>
                             </div>
-                            <div className="flex items-center space-x-3 cursor-pointer hover:opacity-70">
-                                <span className="text-lg">🕒</span>
+                            <div className="flex items-center space-x-4 cursor-pointer hover:opacity-70">
+                                <img src="/nav/history.png" className="h-6 w-6 theme-icon-filter" alt="icon"></img>
                                 <span>Recent</span>
                             </div>
-                            <div className="flex items-center space-x-3 cursor-pointer hover:opacity-70">
-                                <span className="text-lg">🔖</span>
+                            <div className="flex items-center space-x-4 cursor-pointer hover:opacity-70">
+                                <img src="/nav/save.png" className="h-6 w-6 theme-icon-filter" alt="icon"></img>
                                 <span>Bookmark</span>
                             </div>
-                            <div className="flex items-center space-x-3 cursor-pointer hover:opacity-70">
-                                <span className="text-lg">🔔</span>
+                            <div className="flex items-center space-x-4 cursor-pointer hover:opacity-70">
+                                <img src="/nav/notification.png" className="h-6 w-6 theme-icon-filter" alt="icon"></img>
                                 <span>Notification</span>
                             </div>
-                            <div className="flex items-center space-x-3 cursor-pointer hover:opacity-70">
-                                <span className="text-lg">📥</span>
+                            <div className="flex items-center space-x-4 cursor-pointer hover:opacity-70">
+                                <img src="/nav/download.png" className="h-6 w-6 theme-icon-filter" alt="icon"></img>
                                 <span>Downloaded</span>
                             </div>
-                            <div className="flex items-center space-x-3 cursor-pointer hover:opacity-70">
-                                <span className="text-lg">🆘</span>
+                            <div className="flex items-center space-x-4 cursor-pointer hover:opacity-70">
+                                <img src="/nav/faq.png" className="h-6 w-6 theme-icon-filter" alt="icon"></img>
                                 <span>Support</span>
                             </div>
-                            <div className="flex items-center space-x-3 cursor-pointer hover:opacity-70">
-                                <span className="text-lg">⚙️</span>
+                            <div className="flex items-center space-x-4 cursor-pointer hover:opacity-70">
+                                <img src="/nav/settings.png" className="h-6 w-6 theme-icon-filter" alt="icon"></img>
                                 <span>Setting</span>
                             </div>
                             <div
-                                className="flex items-center space-x-3 cursor-pointer hover:opacity-70"
+                                className="flex items-center space-x-4 cursor-pointer hover:opacity-70"
                                 onClick={toggleTheme}
                             >
                                 <span className="text-lg">{isDarkMode ? '☀️' : '🌙'}</span>
