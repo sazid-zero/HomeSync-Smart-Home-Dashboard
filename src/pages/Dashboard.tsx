@@ -30,7 +30,7 @@ const DeviceCard: React.FC<DeviceCardProps> = ({ name, status, power, image }) =
     };
 
     return (
-        <div className="w-full max-w-[280px] h-[160px] theme-card-bg rounded-3xl theme-shadow-strong p-4 flex justify-between">
+        <div className="w-full h-[160px] theme-card-bg rounded-3xl theme-shadow-strong p-4 flex justify-between">
             <div className="flex flex-col justify-between h-full">
                 <div className="flex items-center">
                     <img src={image} alt="icon" className="w-6 h-6 rounded-sm theme-icon-filter" />
