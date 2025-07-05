@@ -13,7 +13,7 @@ const AppLayoutContent: React.FC = () => {
             <div className="lg:hidden fixed top-0 left-0 right-0 flex items-center justify-between p-4 theme-bg-secondary z-50 shadow-md">
                 <h1 className="text-lg font-bold theme-text-primary">Dashboard</h1>
                 <button
-                    className="text-xl theme-text-primary"
+                    className="text-xl theme-text-primary cursor-pointer"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     ☰
@@ -22,8 +22,8 @@ const AppLayoutContent: React.FC = () => {
 
             {/* Mobile Menu Overlay */}
             {isMobileMenuOpen && (
-                <div className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40" onClick={() => setIsMobileMenuOpen(false)}>
-                    <div className="fixed left-0 top-0 h-full w-64 theme-bg-secondary shadow-lg z-50 p-6">
+                <div className="lg:hidden fixed inset-0 bg-black/20 bg-opacity-50 z-50" onClick={() => setIsMobileMenuOpen(false)}>
+                    <div className="fixed right-0 top-0 h-full w-64 theme-bg-secondary shadow-lg z-50 p-6">
                         <div className="flex items-center space-x-2 mb-8">
                             <img src="/profile.jpg" alt="User" className="rounded-full h-12 w-12" />
                             <div className="flex flex-col space-y-1">

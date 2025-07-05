@@ -368,7 +368,7 @@ const Sidebar: React.FC = () => {
                     <span>Rooms</span>
                 </div>
                 <div className="flex items-center space-x-3 cursor-pointer hover:opacity-70">
-                    <span className="text-lg">🕒</span>
+                    <img src="/" className="">🕒</img>
                     <span>Recent</span>
                 </div>
                 <div className="flex items-center space-x-3 cursor-pointer hover:opacity-70">
