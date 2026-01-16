@@ -7,7 +7,7 @@ An interactive, responsive smart home dashboard built with **React + TypeScript 
 ## 📸 Preview
 
 >
-> *(add a screenshot image in your public folder with this name)*
+> ![Hero Section](./screenshots/preview.jpeg)
 
 ---
 
