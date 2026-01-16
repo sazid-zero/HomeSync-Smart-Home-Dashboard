@@ -72,7 +72,6 @@ Visit `http://localhost:5173` in your browser.
 * Integrate Firebase or custom backend for real-time data sync
 * Add user authentication
 * Push notifications for smart alerts
-* Dark mode support
 
 ---
 
