@@ -20,6 +20,7 @@ An interactive, responsive smart home dashboard built with **React + TypeScript 
 *  Occupant listing and device power consumption tracking
 *  Fully responsive layout from desktop to mobile
 *  Clean modern UI with smooth transitions
+*  Dark mode support
 
 ---
 
@@ -29,7 +30,6 @@ An interactive, responsive smart home dashboard built with **React + TypeScript 
 * Tailwind CSS
 * Headless UI (for dropdowns)
 * Recharts (for charts)
-* Framer Motion (optional for animations)
 
 ---
 
